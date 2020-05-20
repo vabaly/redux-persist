@@ -6,8 +6,17 @@ Persist and rehydrate a redux store.
 [![#redux-persist on Discord](https://img.shields.io/discord/102860784329052160.svg)](https://discord.gg/ExrEvmv)
 
 ## v6 upgrade
+
+v6 版本要注意的地方
+
 **Web**: no breaking changes
+
+**Web**：没有破坏性的改动
+
 **React Native**: Users must now explicitly pass their storage engine in. e.g.
+
+**React Native**：用户现在必须显式的传递其存储引擎，例如：
+
 ```js
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -18,6 +27,7 @@ const persistConfig = {
 ```
 
 ## Quickstart
+
 `npm install redux-persist`
 
 Usage Examples:
@@ -27,7 +37,12 @@ Usage Examples:
 4. Code Splitting [coming soon]
 
 #### Basic Usage
+
+基本用法
+
 Basic usage involves adding `persistReducer` and `persistStore` to your setup. **IMPORTANT** Every app needs to decide how many levels of state they want to "merge". The default is 1 level. Please read through the [state reconciler docs](#state-reconciler) for more information.
+
+基本用法包括 `persistReducer` 和 `persistStore` 这两个方法。**重要的事情：**每个应用程序都需要决定要 `merge` 多少个级别的 `state`。 默认值为1级。 请通读[state reconciler docs](#state-reconciler) 了解更多信息。
 
 ```js
 // configureStore.js
@@ -53,6 +68,8 @@ export default () => {
 ```
 
 If you are using react, wrap your root component with [PersistGate](./docs/PersistGate.md). This delays the rendering of your app's UI until your persisted state has been retrieved and saved to redux. **NOTE** the `PersistGate` loading prop can be null, or any react instance, e.g. `loading={<Loading />}`
+
+如果您使用 React，请用 [PersistGate](./docs/PersistGate.md) 包装您的根组件。 这会延迟应用程序用户界面的呈现，直到检索到持久化的状态并将其保存到 `redux`。 **注意：** `PersistGate` 的 `loading` 属性可以为 `null`，也可以是任何 `React` 组件，例如 `loading={<Loading />}`
 
 ```js
 import { PersistGate } from 'redux-persist/integration/react'
